@@ -46,7 +46,7 @@
                     $totalFiles = count($files);
                     $fileList = array();
                     for ($i = 0; $i <= $totalFiles; $i++):
-                    if ($files[$i] != '.' && $files[$i] != '..' && filesize($files[$i]) != 0) {
+                    if ($files[$i] != '.' && $files[$i] != '..' && filesize($files[$i]) !== 0) {
                     $fileList[$i] = $files[$i];
                     echo "<tr><td><a href='videos/$fileList[$i]'>$fileList[$i]</a></td><td><a class='btn btn-danger' href='delete.php?getFileName=$fileList[$i]' role='button'>Delete</a></td></tr>"; }
                     endfor;
