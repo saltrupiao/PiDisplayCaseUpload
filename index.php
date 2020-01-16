@@ -36,10 +36,11 @@
                     });
 
                 </script><br>
-                <h5>Current Video Files:</h5>
+                <h5>Current Video File:</h5>
+                <h6>Note: The file to be displayed must have the name video.mp4</h6>
                 <?php
                     echo "<table class='table table-bordered'>";
-                    echo "<thead><tr><th scope='col'>File Name</th><th scope='col'>Action</th></tr></thead><tbody>";
+                    echo "<thead><tr><th scope='col'>File Name</th><th scope='col'>Action</th></tr></thead><tbody><form method='post' action='delete.php'>";
                     $vidPath = '/var/www/html/videos/';
                     $files = scandir($vidPath);
                     $totalFiles = count($files);
@@ -47,9 +48,9 @@
                     for ($i = 0; $i <= $totalFiles; $i++):
                     if ($files[$i] != '.' && $files[$i] != '..') {
                     $fileList[$i] = $files[$i];
-                    echo "<tr><td><a href='http://dc-cafeteria.staff.bishopfoley.edu/videos/$fileList[$i]'>$fileList[$i]</a></td></tr>"; }
+                    echo "<tr><td><a href='http://dc-cafeteria.staff.bishopfoley.edu/videos/$fileList[$i]'>$fileList[$i]</a></td><td><button type='submit' class='btn btn-danger' value='$fileList[i]' id='delBtn'>Delete</button></td></tr>"; }
                     endfor;
-                    echo "</tbody></table>";
+                    echo "</form></tbody></table>";
                 ?>
             </div>
             <div class="col-sm">

@@ -1,4 +1,5 @@
 <?php
+        #Sourced from: https://www.w3schools.com/php/php_file_upload.asp
         session_start();
         $target_dir = '/var/www/html/videos/';
         $target_file = $target_dir . basename($_FILES['fileToUpload']['name']);
