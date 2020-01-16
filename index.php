@@ -26,7 +26,7 @@
                     <div class="custom-file">
                         <input type="file" name="fileToUpload" id="fileToUpload" class="custom-file-input">
                         <label class="custom-file-label" for="fileToUpload">Choose file</label>
-                        <input type="submit" value="Upload Image" name="submit">
+                        <input type="submit" value="Upload Video" name="submit">
                     </div>
                 </form>
                 <script>
@@ -39,8 +39,8 @@
                 <h5>Current Video File:</h5>
                 <h6>Note: The file to be displayed must have the name video.mp4</h6>
                 <?php
-                    echo "<table class='table table-bordered'>";
-                    echo "<thead><tr><th scope='col'>File Name</th><th scope='col'>Action</th></tr></thead><tbody><form method='post' action='delete.php'>";
+                    echo "<form action='delete.php' method='post' enctype='multipart/form-data'><table class='table table-bordered'>";
+                    echo "<thead><tr><th scope='col'>File Name</th><th scope='col'>Action</th></tr></thead><tbody>";
                     $vidPath = '/var/www/html/videos/';
                     $files = scandir($vidPath);
                     $totalFiles = count($files);
@@ -48,9 +48,9 @@
                     for ($i = 0; $i <= $totalFiles; $i++):
                     if ($files[$i] != '.' && $files[$i] != '..') {
                     $fileList[$i] = $files[$i];
-                    echo "<tr><td><a href='videos/$fileList[$i]'>$fileList[$i]</a></td><td><input type='hidden' value='{$fileList[$i]}' id='fileNamePOST'>'<button type='submit' class='btn btn-danger' id='delBtn'>Delete</button></td></tr>"; }
+                    echo "<tr><td><a href='videos/$fileList[$i]'>$fileList[$i]</a></td><td><input type='hidden' value='{$fileList[$i]}' id='fileNamePOST'><button type='submit' class='btn btn-danger' id='delBtn'>Delete</button></td></tr>"; }
                     endfor;
-                    echo "</form></tbody></table>";
+                    echo "</tbody></table></form>";
                 ?>
             </div>
             <div class="col-sm">
