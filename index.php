@@ -48,17 +48,16 @@
                     for ($i = 0; $i <= $totalFiles; $i++):
                     if ($files[$i] != '.' && $files[$i] != '..') {
                     $fileList[$i] = $files[$i];
-                    echo "<tr><td><a href='http://dc-cafeteria.staff.bishopfoley.edu/videos/$fileList[$i]'>$fileList[$i]</a></td><td><button type='submit' class='btn btn-danger' value='$fileList[i]' id='delBtn'>Delete</button></td></tr>"; }
+                    echo "<tr><td><a href='videos/$fileList[$i]'>$fileList[$i]</a></td><td><input type='hidden' value='{$fileList[$i]}' id='fileNamePOST'>'<button type='submit' class='btn btn-danger' id='delBtn'>Delete</button></td></tr>"; }
                     endfor;
                     echo "</form></tbody></table>";
                 ?>
             </div>
             <div class="col-sm">
-                <h5>BFC PiDisplay</h5>
+                <h5>PiDisplayCase</h5>
                 <ul>
-                    <li>Location: BFC Cafeteria - Junior-Senior Trophy Case</li>
+                    <li>Location: Junior-Senior Trophy Case</li>
                     <li>OS: Raspbian Buster OS v10.1</li>
-                    <li>IP: 10.1.200.202</li>
                     <li>FQDN: BFDC-PI1.staff.bishopfoley.edu</li>
                 </ul>
             </div>
