@@ -39,16 +39,16 @@
                 <h5>Current Video File:</h5>
                 <h6>Note: The file to be displayed must have the name video.mp4</h6>
                 <?php
-                    echo "<form action='delete.php' method='get'><table class='table table-bordered'>";
+                    echo "<form method='get'><table class='table table-bordered'>";
                     echo "<thead><tr><th scope='col'>File Name</th><th scope='col'>Action</th></tr></thead><tbody>";
                     $vidPath = '/var/www/html/videos/';
                     $files = scandir($vidPath);
                     $totalFiles = count($files);
                     $fileList = array();
                     for ($i = 0; $i <= $totalFiles; $i++):
-                    if ($files[$i] != '.' && $files[$i] != '..') {
+                    if ($files[$i] != '.' && $files[$i] != '..' && filesize($files[$i]) != 0) {
                     $fileList[$i] = $files[$i];
-                    echo "<tr><td><a href='videos/$fileList[$i]'>$fileList[$i]</a></td><td><button type='submit' class='btn btn-danger' id='delBtn' formaction='delete.php?getFileName={$fileList[$i]}'>Delete</button></td></tr>"; }
+                    echo "<tr><td><a href='videos/$fileList[$i]'>$fileList[$i]</a></td><td><a class='btn btn-danger' href='delete.php?getFileName=$fileList[$i]' role='button'>Delete</a></td></tr>"; }
                     endfor;
                     echo "</tbody></table></form>";
                 ?>
