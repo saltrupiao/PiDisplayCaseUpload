@@ -11,7 +11,7 @@
 
 session_start();
 
-$fileToDelete = $_POST['fileNamePOST'];
+$fileToDelete = $_GET['getFileName'];
 
 $targetDir = '/var/www/html/videos/';
 
